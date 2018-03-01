@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Link Fixer",
+  "description": "Restores consistent ctrl+click, shift+click and cmd+click behaviour when clicking links.",
+  "version": "1.0",
+  "homepage_url": "https://github.com/danielnixon/link-fixer",
+  "icons": {
+    "48": "icons/link-48.png"
+  },
+  "background": {
+    "scripts": ["background-script.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ]
+}

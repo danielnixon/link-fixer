@@ -9,11 +9,11 @@ function clickedLink(node) {
 }
 
 window.addEventListener("click", function(e) {
-  if (e.metaKey || e.ctrlKey || e.shiftKey) {
+  if (e.button === 0 && (e.metaKey || e.ctrlKey || e.shiftKey)) {
     
     const target = clickedLink(e.target);
     const href = target && target.href && target.href.trim();
-    const hrefAttr = target.getAttribute("href");
+    const hrefAttr = target && target.getAttribute("href");
     const shouldHandleClick = href && hrefAttr && !href.startsWith("javascript:") && hrefAttr !== "#";
     
     if (shouldHandleClick) {

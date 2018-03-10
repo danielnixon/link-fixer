@@ -1,7 +1,7 @@
 browser.runtime.getPlatformInfo().then(function(info) {
   const isMac = info.os === "mac";
 
-  browser.runtime.onMessage.addListener(function(message) {
+  browser.runtime.onMessage.addListener(function(message, sender) {
     if (message.shiftKey) {
       browser.windows.create({
         url: message.url
@@ -13,7 +13,8 @@ browser.runtime.getPlatformInfo().then(function(info) {
       if (shouldOpenTab) {
         browser.tabs.create({
           url: message.url,
-          active: false
+          active: false,
+          index: sender.tab ? sender.tab.index + 1 : undefined
         });
       }
     }

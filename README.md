@@ -4,4 +4,5 @@ The default behaviour of ctrl+click, shift+click and cmd+click when clicking on 
 
 # Installation
 
-https://addons.mozilla.org/en-US/firefox/addon/link-fixer/
+* [Firefox](https://addons.mozilla.org/en-US/firefox/addon/link-fixer/)
+* [Chrome](https://chrome.google.com/webstore/detail/link-fixer/mfgoieafikaldiglpkfgifoeigjcifmk)

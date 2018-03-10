@@ -1,9 +1,9 @@
-browser.runtime.getPlatformInfo().then(function(info) {
+chrome.runtime.getPlatformInfo(function(info) {
   const isMac = info.os === "mac";
 
-  browser.runtime.onMessage.addListener(function(message, sender) {
+  chrome.runtime.onMessage.addListener(function(message, sender) {
     if (message.shiftKey) {
-      browser.windows.create({
+      chrome.windows.create({
         url: message.url
       });
     } else {
@@ -11,7 +11,7 @@ browser.runtime.getPlatformInfo().then(function(info) {
       const shouldOpenTab = !(isMac && message.ctrlKey);
 
       if (shouldOpenTab) {
-        browser.tabs.create({
+        chrome.tabs.create({
           url: message.url,
           active: false,
           index: sender.tab ? sender.tab.index + 1 : undefined

@@ -20,7 +20,7 @@ window.addEventListener("click", function(e) {
       e.preventDefault();
       e.stopImmediatePropagation();
 
-      browser.runtime.sendMessage({
+      chrome.runtime.sendMessage({
         "url": target.href,
         "metaKey": e.metaKey,
         "ctrlKey": e.ctrlKey,

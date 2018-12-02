@@ -2,13 +2,12 @@ const dropWhile = (f, xs) => xs.length ? dropWhileNotEmpty(f, xs) : [];
 const dropWhileNotEmpty = (f, [x, ...xs]) =>  f(x) ? dropWhile(f, xs) : [x, ...xs];
 const takeWhile = (f, xs) => xs.length ? takeWhileNotEmpty(f, xs) : [];
 const takeWhileNotEmpty = (f, [x, ...xs]) =>  f(x) ? [x, ...takeWhile(f, xs)] : [];
-const last = (xs) => xs.slice(-1)[0];
 
 const calculateNewTabIndex = function(senderTab, tabs) {
   if (senderTab) {
     var tabsAfterSenderTab = dropWhile(tab => tab.index <= senderTab.index, tabs);
     var tabsOpenedBySenderTab = takeWhile(tab => tab.openerTabId === senderTab.id, tabsAfterSenderTab);
-    var lastTabOpenedBySenderTab = last(tabsOpenedBySenderTab);
+    var lastTabOpenedBySenderTab = tabsOpenedBySenderTab.slice(-1)[0];
     return lastTabOpenedBySenderTab ? lastTabOpenedBySenderTab.index + 1 : undefined;
   } else {
     return undefined;
@@ -29,7 +28,7 @@ chrome.runtime.getPlatformInfo(function(info) {
 
       if (shouldOpenTab) {
         chrome.tabs.query({
-          windowId: sender.tab. windowId
+          windowId: sender.tab.windowId
         }, function(tabs) {
           chrome.tabs.create({
             url: message.url,

@@ -58,7 +58,7 @@ chrome.runtime.getPlatformInfo(function(info) {
           calculateNewTabIndex(sender.tab, tabs).then(function(newTabIndex) {
             chrome.tabs.create({
               url: message.url,
-              active: false,
+              active: false, // TODO https://github.com/danielnixon/link-fixer/issues/2
               openerTabId: sender.tab.id,
               index: newTabIndex
             });

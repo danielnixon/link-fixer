@@ -5,14 +5,14 @@ const takeWhileNotEmpty = (f, [x, ...xs]) =>  f(x) ? [x, ...takeWhile(f, xs)] : 
 
 const tabPositions = {
   relatedAfterCurrent: function(senderTab, tabs) {
-    var tabsAfterSenderTab = dropWhile(tab => tab.index <= senderTab.index, tabs);
-    var tabsOpenedBySenderTab = takeWhile(tab => tab.openerTabId !== undefined && tab.openerTabId === senderTab.id, tabsAfterSenderTab);
-    var lastTabOpenedBySenderTab = tabsOpenedBySenderTab.slice(-1)[0];
+    const tabsAfterSenderTab = dropWhile(tab => tab.index <= senderTab.index, tabs);
+    const tabsOpenedBySenderTab = takeWhile(tab => tab.openerTabId !== undefined && tab.openerTabId === senderTab.id, tabsAfterSenderTab);
+    const lastTabOpenedBySenderTab = tabsOpenedBySenderTab.slice(-1)[0];
     return lastTabOpenedBySenderTab ? lastTabOpenedBySenderTab.index + 1 : undefined;
   },
   afterCurrent: (senderTab) => senderTab.index + 1,
   atEnd: () => Number.MAX_SAFE_INTEGER
-}
+};
 
 const calculateNewTabIndex = function(senderTab, tabs) {
   if (senderTab) {
@@ -21,7 +21,6 @@ const calculateNewTabIndex = function(senderTab, tabs) {
       // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
       return browser.browserSettings.newTabPosition.get({}).then(function(newTabPosition) {
         if (newTabPosition.value === "afterCurrent") {
-          console.log(tabPositions.afterCurrent(senderTab));
           return Promise.resolve(tabPositions.afterCurrent(senderTab));
         } else if (newTabPosition.value === "relatedAfterCurrent") {
           return Promise.resolve(tabPositions.relatedAfterCurrent(senderTab, tabs));
@@ -63,7 +62,7 @@ chrome.runtime.getPlatformInfo(function(info) {
               index: newTabIndex
             });
           });
-        })
+        });
       }
     }
   });

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Link Fixer",
   "description": "Restores consistent ctrl+click, shift+click and cmd+click behaviour when clicking links.",
-  "version": "1.6",
+  "version": "1.7",
   "homepage_url": "https://github.com/danielnixon/link-fixer",
   "icons": {
     "48": "icons/link-48.png"

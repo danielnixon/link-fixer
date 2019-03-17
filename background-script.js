@@ -14,9 +14,11 @@ const tabPositions = {
   atEnd: () => Number.MAX_SAFE_INTEGER
 };
 
+const hasNewTabPosition = this.browser !== undefined && this.browser.browserSettings != undefined && this.browser.browserSettings.newTabPosition != undefined;
+
 const calculateNewTabIndex = function(senderTab, tabs) {
   if (senderTab) {
-    if (this.browser !== undefined && this.browser.browserSettings != undefined) {
+    if (hasNewTabPosition) {
       // Respect Firefox browserSettings if we have them. (`browser` is undefined in Chrome).
       // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
       return browser.browserSettings.newTabPosition.get({}).then(function(newTabPosition) {

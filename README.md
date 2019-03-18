@@ -1,4 +1,9 @@
+![Firefox users](https://img.shields.io/amo/users/link-fixer.svg?label=Firefox%20users)
+![Chrome users](https://img.shields.io/chrome-web-store/users/mfgoieafikaldiglpkfgifoeigjcifmk.svg?label=Chrome%20users)
+
 # Link Fixer
+
+
 
 The default behaviour of ctrl+click, shift+click, cmd+click (on macOS) and middle-click when clicking on links is to open the link in a new tab or new window.
 

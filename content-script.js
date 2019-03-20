@@ -17,7 +17,7 @@ window.addEventListener("click", function(e) {
     const target = clickedLink(e.target);
     const href = target && target.href && target.href.trim();
     const hrefAttr = target && target.getAttribute("href");
-    const shouldHandleClick = href && hrefAttr && !href.startsWith("javascript:") && hrefAttr !== "#";
+    const shouldHandleClick = href && hrefAttr && !hrefAttr.startsWith("javascript:") && hrefAttr !== "#";
     
     if (shouldHandleClick) {
       e.preventDefault();

@@ -1,4 +1,4 @@
-function clickedLink(node) {
+const clickedLink = node => {
   if (!node) {
     return null;
   } else if (node.tagName === "A") {
@@ -8,17 +8,17 @@ function clickedLink(node) {
   }
 }
 
-window.addEventListener("click", function(e) {
+window.addEventListener("click", e => {
   const wasMiddleClick = e.button === 1;
   const wasModifiedLeftClick = e.button === 0 && (e.metaKey || e.ctrlKey || e.shiftKey);
-  
+
   if (wasMiddleClick || wasModifiedLeftClick) {
-    
+
     const target = clickedLink(e.target);
     const href = target && target.href && target.href.trim();
     const hrefAttr = target && target.getAttribute("href");
     const shouldHandleClick = href && hrefAttr && !href.startsWith("javascript:") && hrefAttr !== "#";
-    
+
     if (shouldHandleClick) {
       e.preventDefault();
       e.stopImmediatePropagation();
@@ -31,4 +31,4 @@ window.addEventListener("click", function(e) {
       });
     }
   }
-}, true);  
+}, true);

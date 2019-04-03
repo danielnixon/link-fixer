@@ -1,0 +1,15 @@
+env:
+  browser: true
+  es6: true
+extends: 'eslint:recommended'
+globals:
+  browser: readonly
+  chrome: readonly
+parserOptions:
+  ecmaVersion: 2018
+rules: {
+  "no-trailing-spaces": "error",
+  "indent": ["error", 2],
+  "no-multi-spaces": "error",
+  "eqeqeq": "error"
+}

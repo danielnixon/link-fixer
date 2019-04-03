@@ -1,49 +1,55 @@
 const dropWhile = (f, xs) => xs.length ? dropWhileNotEmpty(f, xs) : [];
-const dropWhileNotEmpty = (f, [x, ...xs]) =>  f(x) ? dropWhile(f, xs) : [x, ...xs];
+const dropWhileNotEmpty = (f, [x, ...xs]) => f(x) ? dropWhile(f, xs) : [x, ...xs];
 const takeWhile = (f, xs) => xs.length ? takeWhileNotEmpty(f, xs) : [];
-const takeWhileNotEmpty = (f, [x, ...xs]) =>  f(x) ? [x, ...takeWhile(f, xs)] : [];
+const takeWhileNotEmpty = (f, [x, ...xs]) => f(x) ? [x, ...takeWhile(f, xs)] : [];
+
+// TODO https://github.com/danielnixon/link-fixer/issues/13
+const defaultTabPosition = "relatedAfterCurrent";
+// TODO https://github.com/danielnixon/link-fixer/issues/2
+const openNewTabsInForeground = false;
 
 const tabPositions = {
-  relatedAfterCurrent: function(senderTab, tabs) {
+  relatedAfterCurrent: (senderTab, tabs) => {
     const tabsAfterSenderTab = dropWhile(tab => tab.index <= senderTab.index, tabs);
     const tabsOpenedBySenderTab = takeWhile(tab => tab.openerTabId !== undefined && tab.openerTabId === senderTab.id, tabsAfterSenderTab);
     const lastTabOpenedBySenderTab = tabsOpenedBySenderTab.slice(-1)[0];
     return lastTabOpenedBySenderTab ? lastTabOpenedBySenderTab.index + 1 : undefined;
   },
-  afterCurrent: (senderTab) => senderTab.index + 1,
+  afterCurrent: senderTab => senderTab.index + 1,
   atEnd: () => Number.MAX_SAFE_INTEGER
 };
 
-const hasNewTabPosition = this.browser !== undefined && this.browser.browserSettings != undefined && this.browser.browserSettings.newTabPosition != undefined;
+// Respect Firefox browserSettings if we have them. (`browser` is undefined in Chrome,
+// `newTabPosition` is undefined in older versions of Firefox).
+// See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
+const newTabPosition = this.browser && this.browser.browserSettings && this.browser.browserSettings.newTabPosition;
+const getNewTabPosition = () => newTabPosition !== undefined
+  ? newTabPosition.get({}).then(x => x.value)
+  : Promise.resolve(defaultTabPosition);
 
-const calculateNewTabIndex = function(senderTab, tabs) {
+const calculateNewTabIndex = (senderTab, tabs) => {
   if (senderTab) {
-    if (hasNewTabPosition) {
-      // Respect Firefox browserSettings if we have them. (`browser` is undefined in Chrome).
-      // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
-      return browser.browserSettings.newTabPosition.get({}).then(function(newTabPosition) {
-        if (newTabPosition.value === "afterCurrent") {
-          return Promise.resolve(tabPositions.afterCurrent(senderTab));
-        } else if (newTabPosition.value === "relatedAfterCurrent") {
-          return Promise.resolve(tabPositions.relatedAfterCurrent(senderTab, tabs));
-        } else if (newTabPosition.value === "atEnd") {
-          return Promise.resolve(tabPositions.atEnd());
-        } else {
-          return Promise.resolve(undefined);
-        }
-      });
-    } else {
-      return Promise.resolve(tabPositions.relatedAfterCurrent(senderTab, tabs));
-    }
+    return getNewTabPosition().then(newTabPosition => {
+      switch (newTabPosition) {
+      case "afterCurrent":
+        return Promise.resolve(tabPositions.afterCurrent(senderTab));
+      case "relatedAfterCurrent":
+        return Promise.resolve(tabPositions.relatedAfterCurrent(senderTab, tabs));
+      case "atEnd":
+        return Promise.resolve(tabPositions.atEnd());
+      default:
+        return Promise.resolve(undefined);
+      }
+    });
   } else {
     return Promise.resolve(undefined);
   }
 };
 
-chrome.runtime.getPlatformInfo(function(info) {
+chrome.runtime.getPlatformInfo(info => {
   const isMac = info.os === "mac";
 
-  chrome.runtime.onMessage.addListener(function(message, sender) {
+  chrome.runtime.onMessage.addListener((message, sender) => {
     if (message.shiftKey) {
       chrome.windows.create({
         url: message.url
@@ -55,11 +61,11 @@ chrome.runtime.getPlatformInfo(function(info) {
       if (shouldOpenTab) {
         chrome.tabs.query({
           windowId: sender.tab.windowId
-        }, function(tabs) {
-          calculateNewTabIndex(sender.tab, tabs).then(function(newTabIndex) {
+        }, tabs => {
+          calculateNewTabIndex(sender.tab, tabs).then(newTabIndex => {
             chrome.tabs.create({
               url: message.url,
-              active: false, // TODO https://github.com/danielnixon/link-fixer/issues/2
+              active: openNewTabsInForeground,
               openerTabId: sender.tab.id,
               index: newTabIndex
             });

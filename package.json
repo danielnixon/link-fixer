@@ -1,0 +1,12 @@
+{
+  "name": "link-fixer",
+  "version": "1.9.0",
+  "description": "Restores consistent ctrl+click, shift+click, cmd+click and middle-click behaviour when clicking links.",
+  "repository": "https://github.com/danielnixon/link-fixer.git",
+  "author": "Daniel Nixon <dan.nixon@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "web-ext": "^3.0.0"
+  }
+}

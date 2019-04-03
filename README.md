@@ -5,6 +5,7 @@
 ![Chrome rating](https://img.shields.io/chrome-web-store/rating/mfgoieafikaldiglpkfgifoeigjcifmk.svg?label=Chrome%20rating)
 
 [![Build Status](https://travis-ci.org/danielnixon/link-fixer.svg?branch=master)](https://travis-ci.org/danielnixon/link-fixer) [![Greenkeeper badge](https://badges.greenkeeper.io/danielnixon/link-fixer.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/danielnixon/link-fixer/badge.svg?targetFile=package.json)](https://snyk.io/test/github/danielnixon/link-fixer?targetFile=package.json)
 
 # Link Fixer
 

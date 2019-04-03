@@ -4,7 +4,7 @@
 ![Chrome users](https://img.shields.io/chrome-web-store/users/mfgoieafikaldiglpkfgifoeigjcifmk.svg?label=Chrome%20users)
 ![Chrome rating](https://img.shields.io/chrome-web-store/rating/mfgoieafikaldiglpkfgifoeigjcifmk.svg?label=Chrome%20rating)
 
-[![Build Status](https://travis-ci.org/danielnixon/link-fixer.svg?branch=master)](https://travis-ci.org/danielnixon/link-fixer)
+[![Build Status](https://travis-ci.org/danielnixon/link-fixer.svg?branch=master)](https://travis-ci.org/danielnixon/link-fixer) [![Greenkeeper badge](https://badges.greenkeeper.io/danielnixon/link-fixer.svg)](https://greenkeeper.io/)
 
 # Link Fixer
 

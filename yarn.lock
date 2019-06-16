@@ -68,6 +68,11 @@
   resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.28.tgz#c054e8af4d9dd75db4e63abc76f885168714d4b3"
   integrity sha1-wFTor02d11205jq8dviFFocU1LM=
 
+"@types/firefox-webext-browser@^67.0.2":
+  version "67.0.2"
+  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-67.0.2.tgz#04625d3294fbca54bccf42dae43f636c5b6452a2"
+  integrity sha512-tXR5THtH5Fqwfmi4y/2dTxCTebqHsKCH2bif/VdE5CPcB/S5x5fu+N+wBuMENzN41agovHMU/LQbtWNV+Aux+w==
+
 "@types/node@*":
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.5.tgz#ac14404c33d1a789973c45379a67f7f7e58a01b9"

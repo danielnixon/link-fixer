@@ -6,7 +6,9 @@
   "author": "Daniel Nixon <dan.nixon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/chrome": "^0.0.86",
     "eslint": "^5.16.0",
+    "typescript": "^3.5.2",
     "web-ext": "^3.0.0"
   }
 }

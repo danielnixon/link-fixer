@@ -60,13 +60,13 @@ chrome.runtime.getPlatformInfo(info => {
 
       if (shouldOpenTab) {
         chrome.tabs.query({
-          windowId: sender.tab.windowId
+          windowId: sender.tab && sender.tab.windowId
         }, tabs => {
           calculateNewTabIndex(sender.tab, tabs).then(newTabIndex => {
             chrome.tabs.create({
               url: message.url,
               active: openNewTabsInForeground,
-              openerTabId: sender.tab.id,
+              openerTabId: sender.tab && sender.tab.id,
               index: newTabIndex
             });
           });

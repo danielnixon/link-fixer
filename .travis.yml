@@ -4,3 +4,4 @@ install:
 script:
   - yarn run web-ext lint
   - yarn run eslint *.js
+  - yarn run tsc

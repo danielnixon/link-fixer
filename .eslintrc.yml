@@ -1,7 +1,7 @@
 env:
   browser: true
   es6: true
-extends: 'eslint:recommended'
+extends: 'plugin:prettier/recommended'
 globals:
   browser: readonly
   chrome: readonly
@@ -9,7 +9,7 @@ parserOptions:
   ecmaVersion: 2018
 rules: {
   "no-trailing-spaces": "error",
-  "indent": ["error", 2],
+  "indent": ["error", 2, {"SwitchCase": 1}],
   "no-multi-spaces": "error",
   "eqeqeq": "error"
 }

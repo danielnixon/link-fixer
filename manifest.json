@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Link Fixer",
   "description": "Restores consistent ctrl+click, shift+click, cmd+click and middle-click behaviour when clicking links.",
-  "version": "1.9",
+  "version": "1.10",
   "homepage_url": "https://github.com/danielnixon/link-fixer",
   "icons": {
     "48": "icons/link-48.png"
@@ -26,7 +26,7 @@
   ],
   "applications": {
     "gecko": {
-      "id": "link-fixer@danielnixon.org"
+      "id": "{18b670e2-67df-4b26-b9b0-34835d1f062a}"
     }
   }
 }

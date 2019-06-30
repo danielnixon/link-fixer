@@ -16,7 +16,17 @@
       "js": ["content-script.js"]
     }
   ],
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
   "permissions": [
-    "browserSettings"
-  ]
+    "browserSettings",
+    "storage"
+  ],
+  "applications": {
+    "gecko": {
+      "id": "link-fixer@danielnixon.org"
+    }
+  }
 }

@@ -5,8 +5,8 @@ const takeWhileNotEmpty = (f, [x, ...xs]) => f(x) ? [x, ...takeWhile(f, xs)] : [
 
 // TODO https://github.com/danielnixon/link-fixer/issues/13
 const defaultTabPosition = "relatedAfterCurrent";
-// TODO https://github.com/danielnixon/link-fixer/issues/2
-const openNewTabsInForeground = false;
+
+const getOptions = () => new Promise(resolve => chrome.storage.sync.get(items => resolve(items)));
 
 const tabPositions = {
   relatedAfterCurrent: (senderTab, tabs) => {
@@ -63,11 +63,13 @@ chrome.runtime.getPlatformInfo(info => {
           windowId: sender.tab && sender.tab.windowId
         }, tabs => {
           calculateNewTabIndex(sender.tab, tabs).then(newTabIndex => {
-            chrome.tabs.create({
-              url: message.url,
-              active: openNewTabsInForeground,
-              openerTabId: sender.tab && sender.tab.id,
-              index: newTabIndex
+            getOptions().then(options => {
+              chrome.tabs.create({
+                url: message.url,
+                active: options.tabPosition === "foreground",
+                openerTabId: sender.tab && sender.tab.id,
+                index: newTabIndex
+              });
             });
           });
         });

@@ -1,10 +1,14 @@
+/**
+ * @param {EventTarget | null} node
+ * @return {HTMLAnchorElement | null}
+ */
 const clickedLink = node => {
-  if (!node) {
-    return null;
-  } else if (node.tagName === "A") {
+  if (node instanceof HTMLAnchorElement) {
     return node;
-  } else {
+  } else if (node instanceof Node) {
     return clickedLink(node.parentNode);
+  } else {
+    return null;
   }
 };
 
@@ -22,7 +26,7 @@ window.addEventListener(
       const shouldHandleClick =
         href && hrefAttr && !href.startsWith("javascript:") && hrefAttr !== "#";
 
-      if (shouldHandleClick) {
+      if (shouldHandleClick && target !== null) {
         e.preventDefault();
         e.stopImmediatePropagation();
 

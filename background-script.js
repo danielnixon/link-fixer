@@ -47,8 +47,8 @@ const getOptions = () =>
 
 const tabPositions = {
   /**
-   * @param {chrome.tabs.Tab}
-   * senderTab @param {chrome.tabs.Tab[]} tabs
+   * @param {chrome.tabs.Tab} senderTab
+   * @param {chrome.tabs.Tab[]} tabs
    * @return {number|undefined}
    */
   relatedAfterCurrent: (senderTab, tabs) => {

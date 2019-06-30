@@ -7,34 +7,34 @@
 
 /**
  * @param {predicate<A>} f
- * @param {A[]} xs
+ * @param {ReadonlyArray<A>} xs
  * @template A
- * @return {A[]}
+ * @return {ReadonlyArray<A>}
  */
 const dropWhile = (f, xs) => (xs.length ? dropWhileNotEmpty(f, xs) : []);
 
 /**
  * @param {predicate<A>} f
- * @param {A[]} xs
+ * @param {ReadonlyArray<A>} xs
  * @template A
- * @return {A[]}
+ * @return {ReadonlyArray<A>}
  */
 const dropWhileNotEmpty = (f, [x, ...xs]) =>
   f(x) ? dropWhile(f, xs) : [x, ...xs];
 
 /**
  * @param {predicate<A>} f
- * @param {A[]} xs
+ * @param {ReadonlyArray<A>} xs
  * @template A
- * @return {A[]}
+ * @return {ReadonlyArray<A>}
  */
 const takeWhile = (f, xs) => (xs.length ? takeWhileNotEmpty(f, xs) : []);
 
 /**
  * @param {predicate<A>} f
- * @param {A[]} xs
+ * @param {ReadonlyArray<A>} xs
  * @template A
- * @return {A[]}
+ * @return {ReadonlyArray<A>}
  */
 const takeWhileNotEmpty = (f, [x, ...xs]) =>
   f(x) ? [x, ...takeWhile(f, xs)] : [];
@@ -48,7 +48,7 @@ const getOptions = () =>
 const tabPositions = {
   /**
    * @param {chrome.tabs.Tab} senderTab
-   * @param {chrome.tabs.Tab[]} tabs
+   * @param {ReadonlyArray<chrome.tabs.Tab>} tabs
    * @return {number|undefined}
    */
   relatedAfterCurrent: (senderTab, tabs) => {
@@ -90,7 +90,7 @@ const getNewTabPosition = () =>
 
 /**
  * @param {chrome.tabs.Tab|undefined} senderTab
- * @param {chrome.tabs.Tab[]} tabs
+ * @param {ReadonlyArray<chrome.tabs.Tab>} tabs
  * @return {Promise<number|undefined>}
  */
 const calculateNewTabIndex = (senderTab, tabs) => {

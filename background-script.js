@@ -116,7 +116,10 @@ chrome.runtime.getPlatformInfo(info => {
   const isMac = info.os === "mac";
 
   chrome.runtime.onMessage.addListener((message, sender) => {
-    if (message.shiftKey) {
+    const openInNewWindow =
+      message.shiftKey && !(message.metaKey || message.ctrlKey);
+
+    if (openInNewWindow) {
       chrome.windows.create({
         url: message.url
       });
@@ -132,9 +135,14 @@ chrome.runtime.getPlatformInfo(info => {
           tabs => {
             calculateNewTabIndex(sender.tab, tabs).then(newTabIndex => {
               getOptions().then(options => {
+                const openInForeground = options.tabPosition === "foreground";
+                const active = message.shiftKey
+                  ? !openInForeground
+                  : openInForeground;
+
                 chrome.tabs.create({
                   url: message.url,
-                  active: options.tabPosition === "foreground",
+                  active: active,
                   openerTabId: sender.tab && sender.tab.id,
                   index: newTabIndex
                 });

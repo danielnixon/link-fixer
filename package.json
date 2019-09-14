@@ -8,11 +8,11 @@
   "devDependencies": {
     "@types/chrome": "^0.0.88",
     "@types/firefox-webext-browser": "^67.0.2",
-    "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.1.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^1.18.2",
-    "typescript": "^3.6.2",
+    "typescript": "^3.6.3",
     "web-ext": "^3.1.1"
   }
 }

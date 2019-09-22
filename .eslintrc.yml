@@ -1,13 +1,25 @@
 env:
   browser: true
   es6: true
-extends: 'plugin:prettier/recommended'
+extends:
+  - 'eslint:recommended'
+  - 'plugin:sonarjs/recommended'
+  - 'plugin:prettier/recommended'
+plugins:
+  - 'sonarjs'
+  - 'prettier'
 globals:
   browser: readonly
   chrome: readonly
 parserOptions:
   ecmaVersion: 2018
 rules: {
+  # Additional rules that are not part of `eslint:recommended`.
+  # See https://eslint.org/docs/rules/
+  "no-eval": "error",
+  "no-implied-eval": "error",
+  "no-await-in-loop": "error",
+  "no-new-wrappers": "error",
   "no-trailing-spaces": "error",
   "indent": ["error", 2, {"SwitchCase": 1}],
   "no-multi-spaces": "error",

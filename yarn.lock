@@ -144,10 +144,10 @@
   resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.28.tgz#c054e8af4d9dd75db4e63abc76f885168714d4b3"
   integrity sha1-wFTor02d11205jq8dviFFocU1LM=
 
-"@types/firefox-webext-browser@^67.0.2":
-  version "67.0.2"
-  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-67.0.2.tgz#04625d3294fbca54bccf42dae43f636c5b6452a2"
-  integrity sha512-tXR5THtH5Fqwfmi4y/2dTxCTebqHsKCH2bif/VdE5CPcB/S5x5fu+N+wBuMENzN41agovHMU/LQbtWNV+Aux+w==
+"@types/firefox-webext-browser@^70.0.0":
+  version "70.0.0"
+  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-70.0.0.tgz#8770a84099471b5b725b169d36a3ad6150e348dd"
+  integrity sha512-Aau3Ri0pGqNBaIy26rbRuJxtmU5H5g4JEfN0NnFo8HyHVjtRDgYavRoysIH/OnpTlLP5Ob4cwz/2Hz3aNugNdg==
 
 "@types/minimatch@^3.0.3":
   version "3.0.3"

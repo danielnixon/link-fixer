@@ -6,7 +6,7 @@
   "author": "Daniel Nixon <dan.nixon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/chrome": "^0.0.89",
+    "@types/chrome": "^0.0.90",
     "@types/firefox-webext-browser": "^70.0.0",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",

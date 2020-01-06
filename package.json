@@ -8,12 +8,12 @@
   "devDependencies": {
     "@types/chrome": "^0.0.91",
     "@types/firefox-webext-browser": "^70.0.1",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1",
-    "typescript": "^3.7.2",
-    "web-ext": "^3.2.1"
+    "typescript": "^3.7.4",
+    "web-ext": "^4.0.0"
   },
   "dependencies": {
     "eslint-plugin-sonarjs": "^0.5.0",

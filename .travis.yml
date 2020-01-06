@@ -3,5 +3,5 @@ install:
   - yarn install --frozen-lockfile
 script:
   - yarn run web-ext lint
-  - yarn run eslint *.js
-  - yarn run tsc
+  - yarn run lint
+  - yarn run build

@@ -4874,6 +4874,11 @@ tosource@1.0.0:
   resolved "https://registry.yarnpkg.com/tosource/-/tosource-1.0.0.tgz#42d88dd116618bcf00d6106dd5446f3427902ff1"
   integrity sha1-QtiN0RZhi88A1hBt1URvNCeQL/E=
 
+total-functions@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/total-functions/-/total-functions-0.1.0.tgz#7afc4c8c5808d4b200d83024ddebbdd52c00f1e9"
+  integrity sha512-7eg2mW3tkmHAdvO51l4dz8pON46sxBpHfSGysMO6HAu6F7Ew90QaUrf08ZnaIcMsHf4t3qHBTlf3/1SUsTiJtQ==
+
 tough-cookie@~2.3.3:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.4.tgz#ec60cee38ac675063ffc97a5c18970578ee83655"

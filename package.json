@@ -11,12 +11,12 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-sonarjs": "^0.5.0",
     "prettier": "^1.19.1",
     "typescript": "^3.7.4",
     "web-ext": "^4.0.0"
   },
   "dependencies": {
-    "eslint-plugin-sonarjs": "^0.5.0",
     "total-functions": "^0.1.0"
   },
   "scripts": {

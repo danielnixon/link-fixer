@@ -69,10 +69,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@types/chrome@^0.0.94":
-  version "0.0.94"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.94.tgz#6097e605837ed18227517df0f88e882a736c24da"
-  integrity sha512-vbJVHmXTfdFQcA4eJpBoTWS15PhW8D51WxPZAHFSvx04MFFBtNmZnvBmMhpgSQ5pIhQW+NYTMTtD85p947JKlg==
+"@types/chrome@^0.0.101":
+  version "0.0.101"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.101.tgz#8b6f7d4f1d4890ba7d950f8492725fa7ba9ab910"
+  integrity sha512-9GpAt3fBVPdzEIwdgDrxqCaURyJqOVz+oIWB+iDE2FD0ZeGQhkMwTqJIW+Ok/lnie6tt6DwVMZkOS8x6QkmWsQ==
   dependencies:
     "@types/filesystem" "*"
 

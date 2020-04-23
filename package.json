@@ -14,7 +14,7 @@
     "eslint-plugin-sonarjs": "^0.5.0",
     "prettier": "^1.19.1",
     "typescript": "^3.8.2",
-    "web-ext": "^4.1.0"
+    "web-ext": "^4.2.0"
   },
   "dependencies": {
     "total-functions": "^0.1.0"

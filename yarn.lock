@@ -76,12 +76,13 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@types/chrome@^0.0.94":
-  version "0.0.94"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.94.tgz#6097e605837ed18227517df0f88e882a736c24da"
-  integrity sha512-vbJVHmXTfdFQcA4eJpBoTWS15PhW8D51WxPZAHFSvx04MFFBtNmZnvBmMhpgSQ5pIhQW+NYTMTtD85p947JKlg==
+"@types/chrome@^0.0.107":
+  version "0.0.107"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.107.tgz#0719eff4fa4424e034621a2b772545a966364526"
+  integrity sha512-7z/4YkJu4B8ROxZhbzIx5olbRJqzoDdAoMhSzcJlElsZzv2eTxsvxNkN/QFq0ClbAFNkFf07XVoTrWFHD12QyA==
   dependencies:
     "@types/filesystem" "*"
+    "@types/har-format" "*"
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -104,6 +105,11 @@
   version "70.0.1"
   resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-70.0.1.tgz#53a3915bfbe25e2c5ec439dbdbe6e303610012bb"
   integrity sha512-hjHsTR9vKs+yikWbNS/s7TVCx15M/MEn+VYx47wtT/W/wORsIZDD75gfUfP7lkzi+IxRvKMQBB/5/wMFlfgvgQ==
+
+"@types/har-format@*":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@types/har-format/-/har-format-1.2.4.tgz#3275842095abb60d14b47fa798cc9ff708dab6d4"
+  integrity sha512-iUxzm1meBm3stxUMzRqgOVHjj4Kgpgu5w9fm4X7kPRfSgVRzythsucEN7/jtOo8SQzm+HfcxWWzJS0mJDH/3DQ==
 
 "@types/minimatch@^3.0.3":
   version "3.0.3"

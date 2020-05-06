@@ -44,13 +44,13 @@ const takeWhileNotEmpty = (f, [x, ...xs]) =>
  * @template A
  * @return {A | undefined}
  */
-const last = xs => xs[xs.length - 1]; // eslint-disable-line no-array-subscript
+const last = (xs) => xs[xs.length - 1]; // eslint-disable-line no-array-subscript
 
 // TODO https://github.com/danielnixon/link-fixer/issues/13
 const defaultTabPosition = "relatedAfterCurrent";
 
 const getOptions = () =>
-  new Promise(resolve => chrome.storage.sync.get(items => resolve(items)));
+  new Promise((resolve) => chrome.storage.sync.get((items) => resolve(items)));
 
 const tabPositions = {
   /**
@@ -60,11 +60,12 @@ const tabPositions = {
    */
   relatedAfterCurrent: (senderTab, tabs) => {
     const tabsAfterSenderTab = dropWhile(
-      tab => tab.index <= senderTab.index,
+      (tab) => tab.index <= senderTab.index,
       tabs
     );
     const tabsOpenedBySenderTab = takeWhile(
-      tab => tab.openerTabId !== undefined && tab.openerTabId === senderTab.id,
+      (tab) =>
+        tab.openerTabId !== undefined && tab.openerTabId === senderTab.id,
       tabsAfterSenderTab
     );
     const lastTabOpenedBySenderTab = last(tabsOpenedBySenderTab);
@@ -76,11 +77,11 @@ const tabPositions = {
    * @param {chrome.tabs.Tab} senderTab
    * @return {number}
    */
-  afterCurrent: senderTab => senderTab.index + 1,
+  afterCurrent: (senderTab) => senderTab.index + 1,
   /**
    * @return {number}
    */
-  atEnd: () => Number.MAX_SAFE_INTEGER
+  atEnd: () => Number.MAX_SAFE_INTEGER,
 };
 
 // Respect Firefox browserSettings if we have them. (`browser` is undefined in Chrome,
@@ -92,7 +93,7 @@ const newTabPosition =
   this.browser.browserSettings.newTabPosition;
 const getNewTabPosition = () =>
   newTabPosition !== undefined
-    ? newTabPosition.get({}).then(x => x.value)
+    ? newTabPosition.get({}).then((x) => x.value)
     : Promise.resolve(defaultTabPosition);
 
 /**
@@ -102,7 +103,7 @@ const getNewTabPosition = () =>
  */
 const calculateNewTabIndex = (senderTab, tabs) => {
   if (senderTab) {
-    return getNewTabPosition().then(newTabPosition => {
+    return getNewTabPosition().then((newTabPosition) => {
       switch (newTabPosition) {
         case "afterCurrent":
           return tabPositions.afterCurrent(senderTab);
@@ -119,7 +120,7 @@ const calculateNewTabIndex = (senderTab, tabs) => {
   }
 };
 
-chrome.runtime.getPlatformInfo(info => {
+chrome.runtime.getPlatformInfo((info) => {
   const isMac = info.os === "mac";
 
   chrome.runtime.onMessage.addListener((message, sender) => {
@@ -128,7 +129,7 @@ chrome.runtime.getPlatformInfo(info => {
 
     if (openInNewWindow) {
       chrome.windows.create({
-        url: message.url
+        url: message.url,
       });
     } else {
       // ctrl+click opens a context menu on Mac, so don't create the new tab.
@@ -137,11 +138,11 @@ chrome.runtime.getPlatformInfo(info => {
       if (shouldOpenTab) {
         chrome.tabs.query(
           {
-            windowId: sender.tab && sender.tab.windowId
+            windowId: sender.tab && sender.tab.windowId,
           },
-          tabs => {
-            calculateNewTabIndex(sender.tab, tabs).then(newTabIndex => {
-              getOptions().then(options => {
+          (tabs) => {
+            calculateNewTabIndex(sender.tab, tabs).then((newTabIndex) => {
+              getOptions().then((options) => {
                 const openInForeground = options.tabPosition === "foreground";
                 const active = message.shiftKey
                   ? !openInForeground
@@ -151,7 +152,7 @@ chrome.runtime.getPlatformInfo(info => {
                   url: message.url,
                   active: active,
                   openerTabId: sender.tab && sender.tab.id,
-                  index: newTabIndex
+                  index: newTabIndex,
                 });
               });
             });

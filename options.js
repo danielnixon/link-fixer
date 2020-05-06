@@ -14,7 +14,7 @@ function saveOptions(e) {
 }
 
 function restoreOptions() {
-  chrome.storage.sync.get(items => {
+  chrome.storage.sync.get((items) => {
     const backgroundInput = document.querySelector(
       "input[name='tab-position'][value='background']"
     );

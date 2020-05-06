@@ -2,7 +2,7 @@
  * @param {EventTarget | null} node
  * @return {HTMLAnchorElement | null}
  */
-const clickedLink = node => {
+const clickedLink = (node) => {
   if (node instanceof HTMLAnchorElement) {
     return node;
   } else if (node instanceof Node) {
@@ -14,7 +14,7 @@ const clickedLink = node => {
 
 window.addEventListener(
   "click",
-  e => {
+  (e) => {
     const wasMiddleClick = e.button === 1;
     const wasModifiedLeftClick =
       e.button === 0 && (e.metaKey || e.ctrlKey || e.shiftKey);
@@ -34,7 +34,7 @@ window.addEventListener(
           url: target.href,
           metaKey: e.metaKey,
           ctrlKey: e.ctrlKey,
-          shiftKey: e.shiftKey
+          shiftKey: e.shiftKey,
         });
       }
     }

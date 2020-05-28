@@ -4,7 +4,7 @@
 [![Chrome users](https://img.shields.io/chrome-web-store/users/mfgoieafikaldiglpkfgifoeigjcifmk.svg?label=Chrome%20users)](https://chrome.google.com/webstore/detail/link-fixer/mfgoieafikaldiglpkfgifoeigjcifmk)
 [![Chrome rating](https://img.shields.io/chrome-web-store/rating/mfgoieafikaldiglpkfgifoeigjcifmk.svg?label=Chrome%20rating)](https://chrome.google.com/webstore/detail/link-fixer/mfgoieafikaldiglpkfgifoeigjcifmk)
 
-[![Build Status](https://travis-ci.org/danielnixon/link-fixer.svg?branch=master)](https://travis-ci.org/danielnixon/link-fixer) [![Greenkeeper badge](https://badges.greenkeeper.io/danielnixon/link-fixer.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/danielnixon/link-fixer.svg?branch=master)](https://travis-ci.org/danielnixon/link-fixer) 
 [![Known Vulnerabilities](https://snyk.io/test/github/danielnixon/link-fixer/badge.svg?targetFile=package.json)](https://snyk.io/test/github/danielnixon/link-fixer?targetFile=package.json)
 [![dependencies Status](https://david-dm.org/danielnixon/link-fixer/status.svg)](https://david-dm.org/danielnixon/link-fixer)
 [![devDependencies Status](https://david-dm.org/danielnixon/link-fixer/dev-status.svg)](https://david-dm.org/danielnixon/link-fixer?type=dev)

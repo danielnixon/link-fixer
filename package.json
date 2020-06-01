@@ -17,7 +17,7 @@
     "web-ext": "^4.2.0"
   },
   "dependencies": {
-    "total-functions": "^1.0.0"
+    "total-functions": "^3.0.0"
   },
   "scripts": {
     "build": "tsc",

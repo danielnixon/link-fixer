@@ -19,9 +19,6 @@
     "typescript": "^3.9.3",
     "web-ext": "^4.2.0"
   },
-  "dependencies": {
-    "total-functions": "^3.0.0"
-  },
   "scripts": {
     "build": "tsc",
     "lint": "eslint *.js"

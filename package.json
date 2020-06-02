@@ -6,21 +6,24 @@
   "author": "Daniel Nixon <dan.nixon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/chrome": "^0.0.112",
+    "@types/chrome": "^0.0.114",
     "@types/firefox-webext-browser": "^70.0.1",
-    "eslint": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-sonarjs": "^0.5.0",
+    "eslint-plugin-total-functions": "^0.0.6",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.2",
+    "typescript": "^3.9.3",
     "web-ext": "^4.2.0"
   },
   "dependencies": {
-    "total-functions": "^1.0.0"
+    "total-functions": "^3.0.0"
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint *.js --rulesdir node_modules/total-functions/dist"
+    "lint": "eslint *.js"
   }
 }

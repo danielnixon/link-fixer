@@ -44,7 +44,7 @@ const takeWhileNotEmpty = (f, [x, ...xs]) =>
  * @template A
  * @return {A | undefined}
  */
-const last = (xs) => xs[xs.length - 1]; // eslint-disable-line no-array-subscript
+const last = (xs) => xs[xs.length - 1]; // eslint-disable-line total-functions/no-array-subscript
 
 // TODO https://github.com/danielnixon/link-fixer/issues/13
 const defaultTabPosition = "relatedAfterCurrent";

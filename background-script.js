@@ -1,3 +1,6 @@
+// TODO fix these
+/* eslint-disable total-functions/no-array-destructuring */
+
 /**
  * @callback predicate
  * @param {A} x

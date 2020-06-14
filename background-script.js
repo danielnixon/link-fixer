@@ -52,6 +52,9 @@ const last = (xs) => xs[xs.length - 1]; // eslint-disable-line total-functions/n
 // TODO https://github.com/danielnixon/link-fixer/issues/13
 const defaultTabPosition = "relatedAfterCurrent";
 
+/**
+ * @return {Promise<Record<string, any>>}
+ */
 const getOptions = () =>
   new Promise((resolve) => chrome.storage.sync.get((items) => resolve(items)));
 
@@ -96,7 +99,7 @@ const newTabPosition =
   this.browser.browserSettings.newTabPosition;
 const getNewTabPosition = () =>
   newTabPosition !== undefined
-    ? newTabPosition.get({}).then((x) => x.value)
+    ? newTabPosition.get({}).then((x) => x.value) // eslint-disable-line @typescript-eslint/no-unsafe-return
     : Promise.resolve(defaultTabPosition);
 
 /**
@@ -127,11 +130,14 @@ chrome.runtime.getPlatformInfo((info) => {
   const isMac = info.os === "mac";
 
   chrome.runtime.onMessage.addListener((message, sender) => {
+    // TODO `message` has type any
+    /* eslint-disable @typescript-eslint/no-unsafe-member-access */
     const openInNewWindow =
       message.shiftKey && !(message.metaKey || message.ctrlKey);
 
     if (openInNewWindow) {
       chrome.windows.create({
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         url: message.url,
       });
     } else {
@@ -144,14 +150,16 @@ chrome.runtime.getPlatformInfo((info) => {
             windowId: sender.tab && sender.tab.windowId,
           },
           (tabs) => {
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
             calculateNewTabIndex(sender.tab, tabs).then((newTabIndex) => {
-              getOptions().then((options) => {
+              return getOptions().then((options) => {
                 const openInForeground = options.tabPosition === "foreground";
                 const active = message.shiftKey
                   ? !openInForeground
                   : openInForeground;
 
                 chrome.tabs.create({
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   url: message.url,
                   active: active,
                   openerTabId: sender.tab && sender.tab.id,
@@ -163,5 +171,6 @@ chrome.runtime.getPlatformInfo((info) => {
         );
       }
     }
+    /* eslint-enable @typescript-eslint/no-unsafe-member-access */
   });
 });

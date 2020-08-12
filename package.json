@@ -17,7 +17,7 @@
     "eslint-plugin-total-functions": "^1.40.0",
     "prettier": "^2.0.5",
     "typescript": "^3.9.7",
-    "web-ext": "^4.3.0"
+    "web-ext": "^5.0.0"
   },
   "scripts": {
     "build": "tsc",

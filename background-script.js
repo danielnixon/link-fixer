@@ -1,5 +1,5 @@
 // TODO fix these
-/* eslint-disable total-functions/no-array-destructuring */
+/* eslint-disable total-functions/no-unsafe-destructuring */
 
 /**
  * @callback predicate
@@ -47,7 +47,7 @@ const takeWhileNotEmpty = (f, [x, ...xs]) =>
  * @template A
  * @return {A | undefined}
  */
-const last = (xs) => xs[xs.length - 1]; // eslint-disable-line total-functions/no-array-subscript
+const last = (xs) => xs[xs.length - 1]; // eslint-disable-line total-functions/no-unsafe-subscript
 
 // TODO https://github.com/danielnixon/link-fixer/issues/13
 const defaultTabPosition = "relatedAfterCurrent";
@@ -153,6 +153,7 @@ chrome.runtime.getPlatformInfo((info) => {
             // eslint-disable-next-line @typescript-eslint/no-floating-promises
             calculateNewTabIndex(sender.tab, tabs).then((newTabIndex) => {
               return getOptions().then((options) => {
+                // eslint-disable-next-line total-functions/no-unsafe-subscript
                 const openInForeground = options.tabPosition === "foreground";
                 const active = message.shiftKey
                   ? !openInForeground

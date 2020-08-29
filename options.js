@@ -19,12 +19,14 @@ function restoreOptions() {
       "input[name='tab-position'][value='background']"
     );
     if (backgroundInput instanceof HTMLInputElement) {
+      // eslint-disable-next-line total-functions/no-unsafe-subscript
       backgroundInput.checked = items.tabPosition === "background";
     }
     const foregroundInput = document.querySelector(
       "input[name='tab-position'][value='foreground']"
     );
     if (foregroundInput instanceof HTMLInputElement) {
+      // eslint-disable-next-line total-functions/no-unsafe-subscript
       foregroundInput.checked = items.tabPosition === "foreground";
     }
   });

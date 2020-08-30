@@ -1,5 +1,11 @@
+/* eslint-disable functional/no-this-expression */
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/no-conditional-statement */
+/* eslint-disable functional/functional-parameters */
+
 // TODO fix these
 /* eslint-disable total-functions/no-unsafe-destructuring */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
 /**
  * @callback predicate
@@ -14,7 +20,7 @@
  * @template A
  * @return {ReadonlyArray<A>}
  */
-const dropWhile = (f, xs) => (xs.length ? dropWhileNotEmpty(f, xs) : []);
+const dropWhile = (f, xs) => (xs.length > 0 ? dropWhileNotEmpty(f, xs) : []);
 
 /**
  * @param {predicate<A>} f
@@ -31,7 +37,7 @@ const dropWhileNotEmpty = (f, [x, ...xs]) =>
  * @template A
  * @return {ReadonlyArray<A>}
  */
-const takeWhile = (f, xs) => (xs.length ? takeWhileNotEmpty(f, xs) : []);
+const takeWhile = (f, xs) => (xs.length > 0 ? takeWhileNotEmpty(f, xs) : []);
 
 /**
  * @param {predicate<A>} f
@@ -75,7 +81,7 @@ const tabPositions = {
       tabsAfterSenderTab
     );
     const lastTabOpenedBySenderTab = last(tabsOpenedBySenderTab);
-    return lastTabOpenedBySenderTab
+    return lastTabOpenedBySenderTab !== undefined
       ? lastTabOpenedBySenderTab.index + 1
       : undefined;
   },
@@ -108,7 +114,7 @@ const getNewTabPosition = () =>
  * @return {Promise<number|undefined>}
  */
 const calculateNewTabIndex = (senderTab, tabs) => {
-  if (senderTab) {
+  if (senderTab !== undefined) {
     return getNewTabPosition().then((newTabPosition) => {
       switch (newTabPosition) {
         case "afterCurrent":

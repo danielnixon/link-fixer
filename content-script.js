@@ -1,3 +1,9 @@
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/no-conditional-statement */
+
+// TODO fix these
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+
 /**
  * @param {EventTarget | null} node
  * @return {HTMLAnchorElement | null}

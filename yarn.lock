@@ -1380,10 +1380,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-typed-fp@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-0.0.2.tgz#b5a76902c018c4c6d590508133a0c08ea04cc9b3"
-  integrity sha512-OLvconTZqeSD1x4aeZ1fMp71EE+jWhPWOoVBXjOLKKO0ElYEvoaezDMzkM/AfVUOw8XzAOx9SII0n7clm8aVCw==
+eslint-config-typed-fp@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-0.1.0.tgz#bc15b569b432c493087dd9958857b969d32de2ff"
+  integrity sha512-Ij4R8370OMPI00vhnxiD+bxplWhYSwa1lyPjJ4ZZquG9c3AOFLpZS/igw1jGQcPE1EHFesPSJyyrxP0oWUE4+Q==
 
 eslint-plugin-functional@^3.0.2:
   version "3.0.2"

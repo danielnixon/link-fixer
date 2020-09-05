@@ -100,10 +100,15 @@ const tabPositions = {
 // `newTabPosition` is undefined in older versions of Firefox).
 // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
 const newTabPosition =
+  // `browser` is undefined in Chrome
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   this.browser &&
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   this.browser.browserSettings &&
   this.browser.browserSettings.newTabPosition;
 const getNewTabPosition = () =>
+  // `newTabPosition` is undefined in older versions of Firefox
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   newTabPosition !== undefined
     ? newTabPosition.get({}).then((x) => x.value) // eslint-disable-line @typescript-eslint/no-unsafe-return
     : Promise.resolve(defaultTabPosition);

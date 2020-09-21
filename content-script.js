@@ -1,7 +1,7 @@
 /* eslint-disable functional/no-expression-statement */
 /* eslint-disable functional/no-conditional-statement */
 
-// TODO fix these
+// TODO fix this
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
 /**

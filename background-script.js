@@ -3,8 +3,7 @@
 /* eslint-disable functional/no-conditional-statement */
 /* eslint-disable functional/functional-parameters */
 
-// TODO fix these
-/* eslint-disable total-functions/no-unsafe-destructuring */
+// TODO fix this
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
 /**
@@ -20,11 +19,12 @@
  * @template A
  * @return {ReadonlyArray<A>}
  */
-const dropWhile = (f, xs) => (xs.length > 0 ? dropWhileNotEmpty(f, xs) : []);
+const dropWhile = (f, xs) =>
+  xs[0] !== undefined ? dropWhileNotEmpty(f, [xs[0], ...xs.slice(1)]) : [];
 
 /**
  * @param {predicate<A>} f
- * @param {ReadonlyArray<A>} xs
+ * @param {readonly [A, ...readonly A[]]} xs
  * @template A
  * @return {ReadonlyArray<A>}
  */
@@ -37,11 +37,12 @@ const dropWhileNotEmpty = (f, [x, ...xs]) =>
  * @template A
  * @return {ReadonlyArray<A>}
  */
-const takeWhile = (f, xs) => (xs.length > 0 ? takeWhileNotEmpty(f, xs) : []);
+const takeWhile = (f, xs) =>
+  xs[0] !== undefined ? takeWhileNotEmpty(f, [xs[0], ...xs.slice(1)]) : [];
 
 /**
  * @param {predicate<A>} f
- * @param {ReadonlyArray<A>} xs
+ * @param {readonly [A, ...readonly A[]]} xs
  * @template A
  * @return {ReadonlyArray<A>}
  */
@@ -144,7 +145,7 @@ chrome.runtime.getPlatformInfo((info) => {
     // TODO `message` has type any
     /* eslint-disable @typescript-eslint/no-unsafe-member-access */
     const openInNewWindow =
-      message.shiftKey && !(message.metaKey || message.ctrlKey);
+      !!message.shiftKey && !(message.metaKey || message.ctrlKey);
 
     if (openInNewWindow) {
       chrome.windows.create({

@@ -8,7 +8,7 @@
   "devDependencies": {
     "@types/chrome": "^0.0.124",
     "@types/firefox-webext-browser": "^78.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.2.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",

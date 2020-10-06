@@ -8,8 +8,8 @@
   "devDependencies": {
     "@types/chrome": "^0.0.124",
     "@types/firefox-webext-browser": "^78.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-config-typed-fp": "^1.2.0",
@@ -19,7 +19,7 @@
     "eslint-plugin-total-functions": "^4.4.0",
     "prettier": "^2.1.2",
     "typescript": "^4.1.0-beta",
-    "web-ext": "^5.1.0"
+    "web-ext": "^5.2.0"
   },
   "scripts": {
     "build": "tsc",

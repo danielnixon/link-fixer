@@ -4247,10 +4247,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.1.0-beta:
-  version "4.1.0-beta"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-beta.tgz#e4d054035d253b7a37bdc077dd71706508573e69"
-  integrity sha512-b/LAttdVl3G6FEmnMkDsK0xvfvaftXpSKrjXn+OVCRqrwz5WD/6QJOiN+dTorqDY+hkaH+r2gP5wI1jBDmdQ7A==
+typescript@^4.1.0-dev.20201009:
+  version "4.1.0-dev.20201009"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-dev.20201009.tgz#7c6c1f3bc696720df62bb8f161f0386569529759"
+  integrity sha512-CVonMYyx/gcYlRAMCV4SdME7eSJEBbfCaNUS/SHBiv80KHUgX8h7nXhB4x2B2b5A/OgqExJiOD6piu1DCQ64+Q==
 
 union-value@^1.0.0:
   version "1.0.1"

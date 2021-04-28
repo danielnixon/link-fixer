@@ -2377,6 +2377,11 @@ node-notifier@9.0.0:
     uuid "^8.3.0"
     which "^2.0.2"
 
+normalize-path@3:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
+  integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+
 normalize-url@^4.1.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
@@ -3254,23 +3259,24 @@ type-check@^0.4.0, type-check@~0.4.0:
   dependencies:
     prelude-ls "^1.2.1"
 
-type-coverage-core@^2.17.2:
-  version "2.17.2"
-  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.17.2.tgz#fd6f077cfcf32b8e82e5784b08e5f6465decd8c3"
-  integrity sha512-J+kKjdJIJetfXkpl1Fg5CFzx09xmFX3aID5w3KJh/RmFSdT05APdPhGxTPMpSSbqNlcDVVnGcVm1LvDZNrlE7A==
+type-coverage-core@^2.17.3:
+  version "2.17.3"
+  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.17.3.tgz#026c8e053ac3e7938cec28dba83bda1e717eafa9"
+  integrity sha512-ip5i02FPSCBdjB02dse6AdHJ67jHtP2GVGu33LjxNQsqpBCNQeSBjV1lkZnchdjZCv3XzNdQ9Cn9Cel/JIuBGA==
   dependencies:
     fast-glob "3"
     minimatch "3"
+    normalize-path "3"
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.17.2:
-  version "2.17.2"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.17.2.tgz#efd29c88372805caae0f8b5cfc9222e1a5775eb8"
-  integrity sha512-kP3uJRZwP+RaXIvJfW9s0ICiHW/9YuIfa06FQmiaARLmqpU5vWgeDZNEDMLuHXZhDt4xnwO5kZVdoK2mPXu4aQ==
+type-coverage@^2.17.3:
+  version "2.17.3"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.17.3.tgz#1332760e9cc696d9642a90953216861db341b0d2"
+  integrity sha512-S+7+YZRkuf8xMeEBbgNthFuEiXjap0DE4now0NEFx/Ak7+AGdLvksWm0fEABUoz4cnMdCWQksXa6G/QXf+BqIA==
   dependencies:
     minimist "1"
-    type-coverage-core "^2.17.2"
+    type-coverage-core "^2.17.3"
 
 type-detect@^4.0.8:
   version "4.0.8"

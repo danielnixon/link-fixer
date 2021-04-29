@@ -1,0 +1,26 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "19:30"
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 8.0.0
+    - 8.1.0
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.14.2
+    - 4.16.0
+    - 4.16.1
+  - dependency-name: type-coverage
+    versions:
+    - 2.16.1
+    - 2.16.2
+  - dependency-name: "@types/chrome"
+    versions:
+    - 0.0.131

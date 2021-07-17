@@ -813,12 +813,7 @@ css-select@^4.1.3:
     domutils "^2.6.0"
     nth-check "^2.0.0"
 
-css-what@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/css-what/-/css-what-5.0.1.tgz#3efa820131f4669a8ac2408f9c32e7c7de9f4cad"
-  integrity sha512-FYDTSHb/7KXsWICVsxdmiExPjCfRC4qRFBdVwv7Ax9hMnvMmEjP9RfxTEZ3qPZGmADDn2vAKSo9UcN1jKVYscg==
-
-css-what@^5.0.1:
+css-what@^5.0.0, css-what@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-5.0.1.tgz#3efa820131f4669a8ac2408f9c32e7c7de9f4cad"
   integrity sha512-FYDTSHb/7KXsWICVsxdmiExPjCfRC4qRFBdVwv7Ax9hMnvMmEjP9RfxTEZ3qPZGmADDn2vAKSo9UcN1jKVYscg==
@@ -3383,10 +3378,10 @@ type-coverage-core@^2.17.5:
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.17.5:
-  version "2.17.5"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.17.5.tgz#21e5a33929d60d294a00b4f7b123c6e2be08fcf1"
-  integrity sha512-Lqmvt4RVf1A+KE7x5PSRU7lM53HfyqeYmAuueHgJnol4omlZ4EnydodMkEc015cQohdqvLLz1vQ5Qhspg1hfRw==
+type-coverage@^2.18.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.18.0.tgz#ed2fc6d23a4517bae0bb7ee54863e6c77461165a"
+  integrity sha512-SAyrR6Xl7GfHNcXU8Y3wSnJfGftdCvf/b2JlJJtt7gt74T0dCF077/ukhlLjI/MsWmRCxW8k8x/d4AjrFiLSpQ==
   dependencies:
     minimist "1"
     type-coverage-core "^2.17.5"

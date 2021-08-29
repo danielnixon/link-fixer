@@ -148,6 +148,7 @@ chrome.runtime.getPlatformInfo((info) => {
       !!message.shiftKey && !(message.metaKey || message.ctrlKey);
 
     if (openInNewWindow) {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
       chrome.windows.create({
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         url: message.url,
@@ -170,6 +171,7 @@ chrome.runtime.getPlatformInfo((info) => {
                   ? !openInForeground
                   : openInForeground;
 
+                // eslint-disable-next-line @typescript-eslint/no-floating-promises
                 chrome.tabs.create({
                   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   url: message.url,

@@ -32,7 +32,7 @@ window.addEventListener(
       const shouldHandleClick =
         href && hrefAttr && !href.startsWith("javascript:") && hrefAttr !== "#";
 
-      if (shouldHandleClick && target !== null) {
+      if (target !== null && shouldHandleClick) {
         e.preventDefault();
         e.stopImmediatePropagation();
 

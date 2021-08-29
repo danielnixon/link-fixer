@@ -12,6 +12,7 @@ function saveOptions(e) {
     checkedTabPositionInput instanceof HTMLInputElement
       ? checkedTabPositionInput.value
       : undefined;
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   chrome.storage.sync.set({ tabPosition: tabPosition });
   e.preventDefault();
 }

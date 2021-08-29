@@ -100,6 +100,7 @@ const tabPositions = {
 // Respect Firefox browserSettings if we have them. (`browser` is undefined in Chrome,
 // `newTabPosition` is undefined in older versions of Firefox).
 // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
+/** @type {browser.types.Setting | undefined | null} */
 const newTabPosition =
   // `browser` is undefined in Chrome
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -107,9 +108,13 @@ const newTabPosition =
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   this.browser.browserSettings &&
   this.browser.browserSettings.newTabPosition;
+
+/**
+ * @returns {Promise<"afterCurrent" | "relatedAfterCurrent" | "atEnd">} tab position
+ */
 const getNewTabPosition = () =>
   // `newTabPosition` is undefined in older versions of Firefox
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, @typescript-eslint/no-unsafe-return
   newTabPosition !== undefined
     ? newTabPosition.get({}).then((x) => x.value) // eslint-disable-line @typescript-eslint/no-unsafe-return
     : Promise.resolve(defaultTabPosition);
@@ -141,49 +146,50 @@ const calculateNewTabIndex = (senderTab, tabs) => {
 chrome.runtime.getPlatformInfo((info) => {
   const isMac = info.os === "mac";
 
-  chrome.runtime.onMessage.addListener((message, sender) => {
-    // TODO `message` has type any
-    /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-    const openInNewWindow =
-      !!message.shiftKey && !(message.metaKey || message.ctrlKey);
+  chrome.runtime.onMessage.addListener(
+    (/** @type {Message} */ message, sender) => {
+      const openInNewWindow =
+        !!message.shiftKey && !(message.metaKey || message.ctrlKey);
 
-    if (openInNewWindow) {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      chrome.windows.create({
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        url: message.url,
-      });
-    } else {
-      // ctrl+click opens a context menu on Mac, so don't create the new tab.
-      const shouldOpenTab = !(isMac && message.ctrlKey);
+      if (openInNewWindow) {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        chrome.windows.create({
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          url: message.url,
+        });
+      } else {
+        // ctrl+click opens a context menu on Mac, so don't create the new tab.
+        const shouldOpenTab = !(isMac && message.ctrlKey);
 
-      if (shouldOpenTab) {
-        chrome.tabs.query(
-          {
-            windowId: sender.tab && sender.tab.windowId,
-          },
-          (tabs) => {
-            // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            calculateNewTabIndex(sender.tab, tabs).then((newTabIndex) => {
-              return getOptions().then((options) => {
-                const openInForeground = options.tabPosition === "foreground";
-                const active = message.shiftKey
-                  ? !openInForeground
-                  : openInForeground;
+        if (shouldOpenTab) {
+          chrome.tabs.query(
+            {
+              windowId: sender.tab && sender.tab.windowId,
+            },
+            (tabs) => {
+              // eslint-disable-next-line @typescript-eslint/no-floating-promises
+              calculateNewTabIndex(sender.tab, tabs).then((newTabIndex) => {
+                return getOptions().then((options) => {
+                  const openInForeground =
+                    options["tabPosition"] === "foreground";
+                  const active = message.shiftKey
+                    ? !openInForeground
+                    : openInForeground;
 
-                // eslint-disable-next-line @typescript-eslint/no-floating-promises
-                chrome.tabs.create({
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                  url: message.url,
-                  active: active,
-                  openerTabId: sender.tab && sender.tab.id,
-                  index: newTabIndex,
+                  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                  chrome.tabs.create({
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                    url: message.url,
+                    active: active,
+                    openerTabId: sender.tab && sender.tab.id,
+                    index: newTabIndex,
+                  });
                 });
               });
-            });
-          }
-        );
+            }
+          );
+        }
       }
     }
-  });
+  );
 });

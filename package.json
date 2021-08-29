@@ -27,7 +27,7 @@
     "lint": "eslint *.js"
   },
   "typeCoverage": {
-    "atLeast": 93.76,
+    "atLeast": 99.70,
     "strict": true,
     "detail": true
   }

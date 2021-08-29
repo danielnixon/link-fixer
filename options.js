@@ -1,6 +1,8 @@
 /* eslint-disable functional/no-conditional-statement */
 /* eslint-disable functional/no-expression-statement */
 
+/** @typedef {{tabPosition: string | undefined}} Settings */
+
 /**
  * @param {Event} e
  */
@@ -12,27 +14,31 @@ function saveOptions(e) {
     checkedTabPositionInput instanceof HTMLInputElement
       ? checkedTabPositionInput.value
       : undefined;
+  /** @type {Settings} */
+  const settings = { tabPosition: tabPosition };
+
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  chrome.storage.sync.set({ tabPosition: tabPosition });
+  chrome.storage.sync.set(settings);
   e.preventDefault();
 }
 
 // eslint-disable-next-line functional/functional-parameters
 function restoreOptions() {
-  chrome.storage.sync.get((items) => {
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  chrome.storage.sync.get((/** @type {Settings} */ settings) => {
     const backgroundInput = document.querySelector(
       "input[name='tab-position'][value='background']"
     );
     if (backgroundInput instanceof HTMLInputElement) {
       // eslint-disable-next-line functional/immutable-data
-      backgroundInput.checked = items.tabPosition === "background";
+      backgroundInput.checked = settings.tabPosition === "background";
     }
     const foregroundInput = document.querySelector(
       "input[name='tab-position'][value='foreground']"
     );
     if (foregroundInput instanceof HTMLInputElement) {
       // eslint-disable-next-line functional/immutable-data
-      foregroundInput.checked = items.tabPosition === "foreground";
+      foregroundInput.checked = settings.tabPosition === "foreground";
     }
   });
 }

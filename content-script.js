@@ -36,12 +36,15 @@ window.addEventListener(
         e.preventDefault();
         e.stopImmediatePropagation();
 
-        chrome.runtime.sendMessage({
+        /** @type {Message} */
+        const message = {
           url: target.href,
           metaKey: e.metaKey,
           ctrlKey: e.ctrlKey,
           shiftKey: e.shiftKey,
-        });
+        };
+
+        chrome.runtime.sendMessage(message);
       }
     }
   },

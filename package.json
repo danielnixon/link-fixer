@@ -8,8 +8,8 @@
   "devDependencies": {
     "@types/chrome": "^0.0.159",
     "@types/firefox-webext-browser": "^94.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-typed-fp": "^1.5.0",

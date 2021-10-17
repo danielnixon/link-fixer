@@ -7,7 +7,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/chrome": "^0.0.159",
-    "@types/firefox-webext-browser": "^82.0.1",
+    "@types/firefox-webext-browser": "^94.0.0",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
     "eslint": "^7.32.0",

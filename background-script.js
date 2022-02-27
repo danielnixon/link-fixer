@@ -154,7 +154,6 @@ chrome.runtime.getPlatformInfo((info) => {
       if (openInNewWindow) {
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
         chrome.windows.create({
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           url: message.url,
         });
       } else {
@@ -178,7 +177,6 @@ chrome.runtime.getPlatformInfo((info) => {
 
                   // eslint-disable-next-line @typescript-eslint/no-floating-promises
                   chrome.tabs.create({
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     url: message.url,
                     active: active,
                     openerTabId: sender.tab && sender.tab.id,

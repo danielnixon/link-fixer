@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint *.js"
+    "lint": "eslint *.js --report-unused-disable-directives"
   },
   "typeCoverage": {
     "atLeast": 99.7,

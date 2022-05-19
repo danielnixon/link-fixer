@@ -44,6 +44,7 @@ window.addEventListener(
           shiftKey: e.shiftKey,
         };
 
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         chrome.runtime.sendMessage(message);
       }
     }

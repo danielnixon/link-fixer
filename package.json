@@ -15,7 +15,7 @@
     "eslint-config-typed-fp": "^3.0.0",
     "eslint-plugin-functional": "^4.2.1",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-sonarjs": "^0.16.0",
+    "eslint-plugin-sonarjs": "^0.17.0",
     "eslint-plugin-total-functions": "^6.0.0",
     "prettier": "^2.6.2",
     "type-coverage": "^2.21.1",

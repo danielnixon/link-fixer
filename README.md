@@ -9,8 +9,6 @@
 
 # Link Fixer
 
-
-
 The default behaviour of ctrl+click, shift+click, cmd+click (on macOS) and middle-click when clicking on links is to open the link in a new tab (or new window in the case of shift).
 
 This behaviour is sometimes [broken by careless developers](https://superuser.com/questions/854797/why-does-ctrl-click-not-open-some-links-in-a-new-tab/).
@@ -21,3 +19,11 @@ This add-on restores the default behaviour, ensuring the modifier keys always ca
 
 * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/link-fixer/)
 * [Chrome](https://chrome.google.com/webstore/detail/link-fixer/mfgoieafikaldiglpkfgifoeigjcifmk)
+
+# A note on the plain JS
+
+Mozilla's [add-on submission process requires submission of source code](https://extensionworkshop.com/documentation/publish/source-code-submission/). It's probably an overly strict interpretation of that requirement, but I took it to mean that something like TypeScript (that neverless produces mostly readable, unobfuscated output) would require source code upload and push an add-on into the slow approval lane.
+
+You'll notice this repo doesn't have a *.ts file in sight, and yet achieves [a very high type coverage score](https://github.com/danielnixon/link-fixer/blob/master/package.json#L29-L33) courtesy of [JSDoc types](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#type).
+
+I took this as an opportunity to see how far I could push this given the no *.ts constraint.

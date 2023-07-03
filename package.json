@@ -19,7 +19,7 @@
     "eslint-plugin-total-functions": "^6.0.0",
     "prettier": "^2.6.2",
     "type-coverage": "^2.21.1",
-    "typescript": "^4.6.4",
+    "typescript": "^5.0.0",
     "web-ext": "^7.0.0"
   },
   "scripts": {

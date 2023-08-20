@@ -125,6 +125,9 @@ const getNewTabPosition = () =>
  * @return {Promise<number|undefined>}
  */
 const calculateNewTabIndex = (senderTab, tabs) => {
+  // If no index is specified, Firefox automatically places the tab according to user settings.
+  if (isFirefox) return Promise.resolve(undefined);
+
   if (senderTab !== undefined) {
     return getNewTabPosition().then((newTabPosition) => {
       switch (newTabPosition) {
@@ -142,6 +145,11 @@ const calculateNewTabIndex = (senderTab, tabs) => {
     return Promise.resolve(undefined);
   }
 };
+
+let isFirefox;
+this?.browser?.runtime?.getBrowserInfo()?.then((brinfo) => {
+  isFirefox = brinfo.name === "Firefox";
+});
 
 chrome.runtime.getPlatformInfo((info) => {
   const isMac = info.os === "mac";

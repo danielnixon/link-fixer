@@ -155,10 +155,10 @@
   resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.29.tgz#a48795ecadf957f6c0d10e0c34af86c098fa5bee"
   integrity sha512-BsPXH/irW0ht0Ji6iw/jJaK8Lj3FJemon2gvEqHKpCdDCeemHa+rI3WBGq5z7cDMZgoLjY40oninGxqk+8NzNQ==
 
-"@types/firefox-webext-browser@^109.0.0":
-  version "109.0.0"
-  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-109.0.0.tgz#17120057a46985ec7659dfd33589655860419929"
-  integrity sha512-tkEjBP/zZxaS5bv8MH/0kUs3WeUm8KU3Ew1B9BtQQdq5PwtG23SXvAbjxjMSQpoIzbxyWG4Yu4mi1uB2S8W7ng==
+"@types/firefox-webext-browser@^120.0.0":
+  version "120.0.5"
+  resolved "https://registry.yarnpkg.com/@types/firefox-webext-browser/-/firefox-webext-browser-120.0.5.tgz#6af63291e70d0fdc7c4ec40b15f70026cb644724"
+  integrity sha512-imn8ecga0HQWcOSvxy9i0lD+7vpHgkj1NVLvXS1lNHqHt03Z4QwazeEdoWe+C9JXpmVyKiRanb+z9D/w001tRg==
 
 "@types/har-format@*":
   version "1.2.8"

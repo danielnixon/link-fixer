@@ -135,10 +135,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@types/chrome@^0.0.209":
-  version "0.0.209"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.209.tgz#3c023bb9b4e51d317167b4459e2f58bbd1fbc49e"
-  integrity sha512-YL3gz9cAKKym/b+u26p8BQuKAc3USsPRcOYZ1OWQmOw0kfYBXkxrh9ASvSRgwA8ywA4sIahio0z0chzmmLq2og==
+"@types/chrome@^0.3.0":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.3.4.tgz#eaf12622ad595611cae33d3ab7fcf00ea9f3630a"
+  integrity sha512-dcySM5R3WAUVYFjylu6tvI4D03hPKjgAqk+tKZ/tm/vxL4mLgbnSsOEQ3J7V99qP/U3Oo9IORstJLmX2hPaDlA==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
